@@ -1,0 +1,7 @@
+# Xcode
+UserInterfaceState.xcuserstate
+.DS_Store
+
+# Build products
+build/
+DerivedData/
