@@ -11,7 +11,8 @@ import Vision
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var textView: UITextView!
     
     private let imagePicker = UIImagePickerController()
     
@@ -37,8 +38,25 @@ class MainViewController: UIViewController {
             fatalError("Unable to create model")
         }
         
-        let visionRequest = VNCoreMLRequest(model: visionModel) { request, error in
+        let visionRequest = VNCoreMLRequest(model: visionModel) { [weak self] request, error in
+            if let error = error {
+                self?.textView.text = error.localizedDescription
+                return
+            }
             
+            guard let result = request.results as? [VNClassificationObservation] else {
+                self?.textView.text = "Unable to recognise object."
+                return
+            }
+            
+            let classifications = result.map { observation in
+                let resultMessage = "It is \(observation.confidence * 100) that the object is \(observation.identifier)"
+                return resultMessage
+            }
+            
+            DispatchQueue.main.async {
+                self?.textView.text = classifications.joined(separator: "\n")
+            }
         }
         
         let visionRequestHandler = VNImageRequestHandler(ciImage: ciImage,

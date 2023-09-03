@@ -59,6 +59,7 @@
                     <navigationItem key="navigationItem" id="crR-Ro-JBN"/>
                     <connections>
                         <outlet property="imageView" destination="lJ8-S9-egF" id="taa-9Q-9tP"/>
+                        <outlet property="textView" destination="Jqa-N8-z70" id="B0m-Os-ruq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m90-30-6XD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
