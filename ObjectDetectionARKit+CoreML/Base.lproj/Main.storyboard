@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pg2-oP-UAA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jZI-3E-nRS">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwU-hU-8r7">
-                                <rect key="frame" x="333" y="69" width="40" height="40"/>
+                                <rect key="frame" x="333" y="113" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="17v-Bc-Gjs"/>
                                     <constraint firstAttribute="height" constant="40" id="wBX-Jj-vke"/>
@@ -29,13 +29,13 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o6r-oq-K67">
-                                <rect key="frame" x="0.0" y="109" width="393" height="709"/>
+                                <rect key="frame" x="0.0" y="153" width="393" height="665"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lJ8-S9-egF">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="344.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="322.66666666666669"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jqa-N8-z70">
-                                        <rect key="frame" x="0.0" y="364.66666666666674" width="393" height="344.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="342.66666666666674" width="393" height="322.33333333333326"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -56,13 +56,30 @@
                             <constraint firstItem="o6r-oq-K67" firstAttribute="top" secondItem="HwU-hU-8r7" secondAttribute="bottom" id="neT-Dg-Yeb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="crR-Ro-JBN"/>
                     <connections>
                         <outlet property="imageView" destination="lJ8-S9-egF" id="taa-9Q-9tP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m90-30-6XD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="975" y="4"/>
+            <point key="canvasLocation" x="2505" y="13"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ru0-Dc-9d5">
+            <objects>
+                <navigationController id="jZI-3E-nRS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8SQ-aR-wxp">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pg2-oP-UAA" kind="relationship" relationship="rootViewController" id="Z76-UM-Nrt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yf1-QO-egZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="14"/>
         </scene>
     </scenes>
     <resources>
