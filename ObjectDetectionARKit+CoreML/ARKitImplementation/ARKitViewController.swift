@@ -15,6 +15,10 @@ class ARKitViewController: UIViewController, ARSCNViewDelegate {
 
     private let restNetModel = Resnet50()
     
+    private var hitTestResult: ARHitTestResult?
+    
+    private var visionRequests = [VNRequest]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,17 +39,6 @@ class ARKitViewController: UIViewController, ARSCNViewDelegate {
         registerGestures()
     }
     
-    private func registerGestures() {
-        let gestureRecognizer = UITapGestureRecognizer(target: self,
-                                                       action: #selector(shoot))
-        sceneView.addGestureRecognizer(gestureRecognizer)
-    }
-    
-    @objc private func shoot(_ recognizer: UITapGestureRecognizer) {
-        
-
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -63,5 +56,55 @@ class ARKitViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+    
+    private func registerGestures() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self,
+                                                       action: #selector(tap))
+        sceneView.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    @objc private func tap(_ recognizer: UITapGestureRecognizer) {
+        guard let sceneView = recognizer.view as? ARSCNView else { return }
+        let touchLocation = sceneView.center
+        
+        guard let currentFrame = sceneView.session.currentFrame else { return }
+        
+        let hitTestResults = sceneView.hitTest(touchLocation, types: .featurePoint)
+        
+        guard !hitTestResults.isEmpty,
+                let hitResult = hitTestResults.first  else { return }
+        
+        self.hitTestResult = hitResult
+        
+        performRequest(currentFrame.capturedImage)
+    }
+    
+    private func performRequest(_ pixelBuffer: CVPixelBuffer) {
+        guard let visionModel = try? VNCoreMLModel(for: restNetModel.model) else { return }
+        
+        let request = VNCoreMLRequest(model: visionModel) { [weak self] request, error in
+            if let error = error {
+                fatalError("Failed to create request")
+            }
+            
+            guard let observations = request.results,
+                  let observation = observations.first as? VNClassificationObservation
+            else { return }
+            
+            debugPrint("Name \(observation.identifier) with confidence \(observation.confidence * 100) ")
+            
+            
+        }
+        
+        request.imageCropAndScaleOption = .centerCrop
+        visionRequests = [request]
+        
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer,
+                                                        orientation: .upMirrored)
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            try? imageRequestHandler.perform(self.visionRequests)
+        }
     }
 }
