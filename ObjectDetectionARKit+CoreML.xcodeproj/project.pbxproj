@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3327DCC62AA492CF008E55C8 /* GoogLeNetPlaces.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3327DCC52AA492CF008E55C8 /* GoogLeNetPlaces.mlmodel */; };
+		3327DCC92AA49CD4008E55C8 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3327DCC82AA49CD4008E55C8 /* Resnet50.mlmodel */; };
+		3327DCCB2AA49CED008E55C8 /* ARKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3327DCCA2AA49CED008E55C8 /* ARKitViewController.swift */; };
 		3359153C2A9F1901002EAE0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359153B2A9F1901002EAE0F /* AppDelegate.swift */; };
 		3359153E2A9F1901002EAE0F /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3359153D2A9F1901002EAE0F /* art.scnassets */; };
 		335915402A9F1901002EAE0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359153F2A9F1901002EAE0F /* MainViewController.swift */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		3327DCC52AA492CF008E55C8 /* GoogLeNetPlaces.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GoogLeNetPlaces.mlmodel; sourceTree = "<group>"; };
+		3327DCC82AA49CD4008E55C8 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
+		3327DCCA2AA49CED008E55C8 /* ARKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitViewController.swift; sourceTree = "<group>"; };
 		335915382A9F1901002EAE0F /* ObjectDetectionARKit+CoreML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ObjectDetectionARKit+CoreML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3359153B2A9F1901002EAE0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3359153D2A9F1901002EAE0F /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -38,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3327DCC72AA49C6C008E55C8 /* ARKitImplementation */ = {
+			isa = PBXGroup;
+			children = (
+				3327DCC82AA49CD4008E55C8 /* Resnet50.mlmodel */,
+				3327DCCA2AA49CED008E55C8 /* ARKitViewController.swift */,
+			);
+			path = ARKitImplementation;
+			sourceTree = "<group>";
+		};
 		3359152F2A9F1901002EAE0F = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +70,7 @@
 		3359153A2A9F1901002EAE0F /* ObjectDetectionARKit+CoreML */ = {
 			isa = PBXGroup;
 			children = (
+				3327DCC72AA49C6C008E55C8 /* ARKitImplementation */,
 				3359153B2A9F1901002EAE0F /* AppDelegate.swift */,
 				3359153D2A9F1901002EAE0F /* art.scnassets */,
 				3359153F2A9F1901002EAE0F /* MainViewController.swift */,
@@ -141,7 +155,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				335915402A9F1901002EAE0F /* MainViewController.swift in Sources */,
+				3327DCCB2AA49CED008E55C8 /* ARKitViewController.swift in Sources */,
 				3359153C2A9F1901002EAE0F /* AppDelegate.swift in Sources */,
+				3327DCC92AA49CD4008E55C8 /* Resnet50.mlmodel in Sources */,
 				3327DCC62AA492CF008E55C8 /* GoogLeNetPlaces.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

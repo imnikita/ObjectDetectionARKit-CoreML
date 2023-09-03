@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jZI-3E-nRS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cR3-wF-BHt">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -64,6 +64,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m90-30-6XD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2505" y="13"/>
+        </scene>
+        <!--Kit View Controller-->
+        <scene sceneID="usY-jn-5U6">
+            <objects>
+                <viewController id="cR3-wF-BHt" customClass="ARKitViewController" customModule="ObjectDetectionARKit_CoreML" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nE1-zs-AY1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdl-Wq-U4f">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            </arscnView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rVq-GZ-Y7T"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hdl-Wq-U4f" firstAttribute="top" secondItem="rVq-GZ-Y7T" secondAttribute="top" id="7AX-5L-x3f"/>
+                            <constraint firstItem="rVq-GZ-Y7T" firstAttribute="trailing" secondItem="hdl-Wq-U4f" secondAttribute="trailing" id="VbO-rz-zQZ"/>
+                            <constraint firstItem="rVq-GZ-Y7T" firstAttribute="bottom" secondItem="hdl-Wq-U4f" secondAttribute="bottom" id="ZYy-hw-jRu"/>
+                            <constraint firstItem="hdl-Wq-U4f" firstAttribute="leading" secondItem="rVq-GZ-Y7T" secondAttribute="leading" id="y9H-J4-1Z0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="hdl-Wq-U4f" id="YOY-Bc-53g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCd-vD-w0o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3569" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ru0-Dc-9d5">
