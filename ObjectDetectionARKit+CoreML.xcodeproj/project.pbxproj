@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3327DCC62AA492CF008E55C8 /* GoogLeNetPlaces.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3327DCC52AA492CF008E55C8 /* GoogLeNetPlaces.mlmodel */; };
 		3359153C2A9F1901002EAE0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359153B2A9F1901002EAE0F /* AppDelegate.swift */; };
 		3359153E2A9F1901002EAE0F /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3359153D2A9F1901002EAE0F /* art.scnassets */; };
 		335915402A9F1901002EAE0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359153F2A9F1901002EAE0F /* MainViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3327DCC52AA492CF008E55C8 /* GoogLeNetPlaces.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GoogLeNetPlaces.mlmodel; sourceTree = "<group>"; };
 		335915382A9F1901002EAE0F /* ObjectDetectionARKit+CoreML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ObjectDetectionARKit+CoreML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3359153B2A9F1901002EAE0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3359153D2A9F1901002EAE0F /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				335915412A9F1901002EAE0F /* Main.storyboard */,
 				335915442A9F1902002EAE0F /* Assets.xcassets */,
 				335915462A9F1902002EAE0F /* LaunchScreen.storyboard */,
+				3327DCC52AA492CF008E55C8 /* GoogLeNetPlaces.mlmodel */,
 			);
 			path = "ObjectDetectionARKit+CoreML";
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			files = (
 				335915402A9F1901002EAE0F /* MainViewController.swift in Sources */,
 				3359153C2A9F1901002EAE0F /* AppDelegate.swift in Sources */,
+				3327DCC62AA492CF008E55C8 /* GoogLeNetPlaces.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
