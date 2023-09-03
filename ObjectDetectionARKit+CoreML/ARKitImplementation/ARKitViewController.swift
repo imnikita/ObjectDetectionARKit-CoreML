@@ -92,8 +92,11 @@ class ARKitViewController: UIViewController, ARSCNViewDelegate {
                   let observation = observations.first as? VNClassificationObservation
             else { return }
             
-            debugPrint("Name \(observation.identifier) with confidence \(observation.confidence * 100) ")
+            let predictionText = "Name \(observation.identifier) with confidence \(observation.confidence * 100) "
             
+            DispatchQueue.main.async {
+                self?.displayPredictions(predictionText)
+            }
             
         }
         
@@ -106,5 +109,44 @@ class ARKitViewController: UIViewController, ARSCNViewDelegate {
         DispatchQueue.global(qos: .userInitiated).async {
             try? imageRequestHandler.perform(self.visionRequests)
         }
+    }
+    
+    private func displayPredictions(_ text: String) {
+        let node = createTextNode(text)
+        
+        guard let columns = self.hitTestResult?.worldTransform.columns.3 else { return }
+        node.position = SCNVector3(columns.x, columns.y, columns.z)
+        
+        sceneView.scene.rootNode.addChildNode(node)
+    }
+    
+    private func createTextNode(_ text: String) -> SCNNode {
+        let parentNode = SCNNode()
+        
+        let sphere = SCNSphere(radius: 0.01)
+        
+        let sphereMaterial = SCNMaterial()
+        sphereMaterial.diffuse.contents = UIColor.orange
+        sphere.firstMaterial = sphereMaterial
+        
+        let sphereNode = SCNNode(geometry: sphere)
+        
+        let textGeometry = SCNText(string: text, extrusionDepth: 0)
+        
+        textGeometry.alignmentMode = CATextLayerAlignmentMode.center.rawValue
+        textGeometry.firstMaterial?.diffuse.contents = UIColor.orange
+        textGeometry.firstMaterial?.specular.contents = UIColor.white
+        textGeometry.firstMaterial?.isDoubleSided = true
+        
+        var font = UIFont(name: "Futura", size: 0.15)
+        textGeometry.font = font
+        
+        let textNode = SCNNode(geometry: textGeometry)
+        textNode.scale = SCNVector3Make(0.2, 0.2, 0.2)
+        
+        parentNode.addChildNode(sphereNode)
+        parentNode.addChildNode(textNode)
+        
+        return parentNode
     }
 }
